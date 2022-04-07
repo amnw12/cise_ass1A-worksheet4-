@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Route,
+  Routes ,
   NavLink,
   BrowserRouter as Router
 } from "react-router-dom";
@@ -15,15 +16,17 @@ const App = () =>  {
         <Router>
         <div>
           <h1>Software Engineering Practice Evidence Repository (SEPER)</h1>
-            <ul className="header">
+          <ul className="header">
                 <li><NavLink exact to = "/">Home</NavLink></li>
                 <li><NavLink to = "/SEPractice">Select the Practice</NavLink></li>
                 <li><NavLink to = "/SubmitArticle">Submit an Article</NavLink></li>
-            </ul>
+          </ul>
           <div className="content">
-            <Route exact path="/" component={Home}/>
-            <Route  path="/SEPractice" component={SEPractice}/>
-            <Route  path="/SubmitArticle" component={SubmitArticle}/>
+          <Routes>
+            <Route exact path="/" element={<Home/>}/>
+            <Route  path="/SEPractice" element={<SEPractice/>}/>
+            <Route  path="/SubmitArticle" element={<SubmitArticle/>}/>
+          </Routes>
           </div>
         </div>
         </Router>
